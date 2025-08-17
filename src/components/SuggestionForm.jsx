@@ -59,34 +59,6 @@ function SuggestionForm() {
       <h2>Submit Your Idea</h2>
       <p>Your insights drive our progress. Share your thoughts to make a difference!</p>
 
-      
-
-      <div className="form-section">
-        <h3>2. Your Idea</h3>
-        <div className="form-group">
-          <label>Existing Problem (What needs improvement?)</label>
-          <textarea name="currentStatus" value={formData.currentStatus} onChange={handleChange}></textarea>
-        </div>
-        <div className="form-group">
-          <label>Suggestion for Solving it (How can it be better?)</label>
-          <textarea name="idea" value={formData.idea} onChange={handleChange} required></textarea>
-        </div>
-      </div>
-
-      <div className="form-section">
-        <h3>3. Suggestion Topics</h3>
-        <div className="checkbox-grid">
-          <label><input type="checkbox" name="topics" value="Work Environment" onChange={handleChange} /> Improving the work environment.</label>
-          <label><input type="checkbox" name="topics" value="Productivity" onChange={handleChange} /> Higher productivity, cost reduction or improvement.</label>
-          <label><input type="checkbox" name="topics" value="Process Improvement" onChange={handleChange} /> Improvement in methods, machinery, or procedures.</label>
-          <label><input type="checkbox" name="topics" value="Waste Reduction" onChange={handleChange} /> Reduction of waste or spillage.</label>
-          <label><input type="checkbox" name="topics" value="Idle Time Reduction" onChange={handleChange} /> Reduction of idle time or repairs.</label>
-          <label><input type="checkbox" name="topics" value="Quality/Output" onChange={handleChange} /> Increase in the utility, quality, yield or output.</label>
-          <label><input type="checkbox" name="topics" value="Conservation" onChange={handleChange} /> Conservation of materials, energy or time.</label>
-          <label><input type="checkbox" name="topics" value="Safety" onChange={handleChange} /> Handling of hazardous materials, safety against fire etc.</label>
-          <label><input type="checkbox" name="topics" value="Other" onChange={handleChange} /> Any other Topic.</label>
-        </div>
-      </div>
 
       <div className="form-section">
           <h3>4. Benefits & Your Involvement</h3>
