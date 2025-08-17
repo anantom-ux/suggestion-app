@@ -25,6 +25,11 @@ body {
   display: flex;
   align-items: center;
 }
+/* Add this new class to your App.css file */
+.header-left {
+  display: flex;
+  align-items: center;
+}
 
 /* This controls the size and spacing of EACH logo */
 .logo {
