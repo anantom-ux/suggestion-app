@@ -1,58 +1,120 @@
 .suggestion-form {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px 40px;
+  max-width: 900px; /* Made the form slightly wider */
+  margin: 40px auto; /* More space at the top/bottom */
+  padding: 40px;
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 1px solid #e0e0e0;
 }
+
+.suggestion-form h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.suggestion-form p {
+  text-align: center;
+  margin-top: 0;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.form-section {
+  margin-bottom: 30px;
+}
+
+.form-section h3 {
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  color: #333;
+}
+
 .form-row {
   display: flex;
   gap: 20px;
-  width: 100%;
 }
+
 .form-group {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
   flex: 1;
 }
+
 .form-group label {
   margin-bottom: 8px;
   font-weight: 500;
   color: #333;
 }
+
 .form-group input, .form-group textarea {
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 16px;
   width: 100%;
   box-sizing: border-box;
 }
+
+/* --- KEY CHANGE: Making text boxes larger --- */
 .form-group textarea {
-  min-height: 100px;
+  min-height: 120px; /* Increased the default height */
   resize: vertical;
 }
-.checkbox-group label, .anonymous-label {
+
+/* --- KEY CHANGE: Styling the topics into a grid --- */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+  gap: 10px;
+}
+
+.checkbox-grid label {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
   font-weight: normal;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
 }
-.checkbox-group input, .anonymous-label input {
+
+.checkbox-grid label:hover {
+    background-color: #f5f5f5;
+}
+
+.checkbox-grid input {
   margin-right: 10px;
 }
-.suggestion-form button {
-  padding: 12px 20px;
+
+.anonymous-label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    background-color: #fffbe6;
+    border: 1px solid #ffe58f;
+    padding: 15px;
+    border-radius: 6px;
+}
+.anonymous-label input {
+    margin-right: 10px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 15px;
   border: none;
   background-color: #007bff;
   color: white;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
   transition: background-color 0.2s;
 }
-.suggestion-form button:hover {
+
+.submit-button:hover {
   background-color: #0056b3;
 }
