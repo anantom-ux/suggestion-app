@@ -59,23 +59,7 @@ function SuggestionForm() {
       <h2>Submit Your Idea</h2>
       <p>Your insights drive our progress. Share your thoughts to make a difference!</p>
 
-      <div className="form-section">
-        <h3>1. Your Details</h3>
-        <div className="form-row">
-          <div className="form-group">
-            <label>Full Name</label>
-            <input type="text" name="suggestedBy" value={formData.suggestedBy} onChange={handleChange} />
-          </div>
-          <div className="form-group">
-            <label>Employee ID</label>
-            <input type="text" name="empCode" value={formData.empCode} onChange={handleChange} />
-          </div>
-          <div className="form-group">
-            <label>Department/Area Name</label>
-            <input type="text" name="department" value={formData.department} onChange={handleChange} />
-          </div>
-        </div>
-      </div>
+      
 
       <div className="form-section">
         <h3>2. Your Idea</h3>
