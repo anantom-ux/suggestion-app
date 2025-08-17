@@ -1,3 +1,12 @@
+/* src/components/SuggestionForm.css */
+h1 {
+  color: red !important;
+  background-color: yellow !important;
+  text-align: center;
+  font-size: 40px;
+}
+
+/* ...all your other form styles below... */
 .suggestion-form {
   max-width: 900px;
   margin: 40px auto;

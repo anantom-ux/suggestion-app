@@ -60,6 +60,7 @@ function SuggestionForm() {
 
 return (
   <form className="suggestion-form" onSubmit={handleSubmit}>
+     <h1>TESTING</h1> {/* <-- ADD THIS LINE */}
     <h2>Submit Your Idea</h2>
     <p>Your insights drive our progress. Share your thoughts to make a difference!</p>
 
