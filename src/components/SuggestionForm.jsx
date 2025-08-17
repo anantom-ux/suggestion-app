@@ -1,4 +1,4 @@
-import React, 'useState' from 'react';
+import React, { useState } from 'react';
 import { db } from '../firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import './SuggestionForm.css';
@@ -15,6 +15,7 @@ function SuggestionForm() {
     benefits: '',
     involvement: '',
     isAnonymous: false,
+    contactEmail: '',
   });
 
   const handleChange = (e) => {
@@ -77,6 +78,10 @@ function SuggestionForm() {
             <input type="checkbox" name="isAnonymous" checked={formData.isAnonymous} onChange={handleChange} />
             Submit this suggestion anonymously (it will not be shown on the home page)
           </label>
+      </div>
+      <div className="form-group">
+        <label>Contact Email</label>
+        <input type="text" name="contactEmail" value={formData.contactEmail} onChange={handleChange} />
       </div>
 
       <button type="submit" className="submit-button">Submit My Suggestion</button>
