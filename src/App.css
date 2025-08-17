@@ -1,38 +1,43 @@
-.App {
-  text-align: center;
+/* General body styles for a clean look */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f4f9; /* Light grey background */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* The main header container */
+.app-header {
+  display: flex; /* This activates Flexbox! */
+  align-items: center; /* Vertically centers everything in the header */
+  justify-content: space-between; /* Pushes logos to the left and nav to the right */
+  padding: 10px 20px; /* Adds space inside the header (top/bottom and left/right) */
+  background-color: #ffffff; /* White background for the header */
+  border-bottom: 1px solid #eaeaea; /* A subtle line to separate the header */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* A subtle shadow for depth */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* A container for just the logos to keep them together */
+.header-logos {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* This controls the size and spacing of EACH logo */
+.logo {
+  height: 40px; /* Set a fixed height for the logos */
+  width: auto; /* Let the width adjust automatically */
+  margin-right: 15px; /* Adds space to the right of each logo */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Styling for the navigation links */
+.app-header nav a {
+  margin-left: 20px; /* Space between the links */
+  text-decoration: none; /* Removes the underline */
+  color: #333; /* Dark grey text color */
+  font-weight: 500;
+  font-size: 16px;
 }
