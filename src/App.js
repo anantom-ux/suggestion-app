@@ -1,11 +1,11 @@
 import React from 'react';
-import './App.css'; // Make sure the CSS file is imported
+import './App.css'; // <-- THIS IS THE CRITICAL MISSING LINE. ADD IT.
 
 function App() {
   return (
     <div className="App">
 
-      {/* Use a <header> element with the "app-header" class */ }
+      {/* Use a <header> element with the "app-header" class */}
       <header className="app-header">
         
         {/* A div to group the logos together */}
