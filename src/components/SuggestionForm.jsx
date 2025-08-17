@@ -54,10 +54,7 @@ function SuggestionForm() {
       console.error("Error submitting suggestion: ", error);
       alert('Error submitting suggestion.');
     }
-  };
-
-// In src/components/SuggestionForm.jsx
-
+  
 return (
   <form className="suggestion-form" onSubmit={handleSubmit}>
      <h1>TESTING</h1> {/* <-- ADD THIS LINE */}
