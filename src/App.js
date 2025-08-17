@@ -153,8 +153,8 @@ function App() {
 
             {/* Right Logo */}
             <div className="flex items-center">
-                <img src={process.env.PUBLIC_URL + '/sohar_steel_logo.png'} alt="Sohar Steel Logo" className="h-10 w-auto object-contain" onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/100x40/e0e0e0/333333?text=Sohar'; }} />
-            </div>
+                <img src = "\sohar_steel_logo.png"></img>
+               </div>
           </div>
         </nav>
         {renderContent()}
