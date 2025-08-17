@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { db } from '../firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import './SuggestionForm.css'; // New CSS file for the form
+import './SuggestionForm.css'; // <-- THIS LINE IS ESSENTIAL. MAKE SURE IT'S HERE.
 
 function SuggestionForm() {
   const [formData, setFormData] = useState({
