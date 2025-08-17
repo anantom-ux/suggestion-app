@@ -20,11 +20,11 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* A subtle shadow for depth */
 }
 
-/* A container for just the logos to keep them together */
+/* A container for just the logos to keep them together
 .header-logos {
   display: flex;
   align-items: center;
-}
+} */
 /* Add this new class to your App.css file */
 .header-left {
   display: flex;
