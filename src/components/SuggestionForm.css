@@ -1,0 +1,58 @@
+.suggestion-form {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px 40px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.form-row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  flex: 1;
+}
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+.form-group input, .form-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.checkbox-group label, .anonymous-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+.checkbox-group input, .anonymous-label input {
+  margin-right: 10px;
+}
+.suggestion-form button {
+  padding: 12px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+.suggestion-form button:hover {
+  background-color: #0056b3;
+}
