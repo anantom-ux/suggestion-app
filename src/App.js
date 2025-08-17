@@ -1,35 +1,41 @@
 import React from 'react';
-import './App.css'; // <-- THIS IS THE CRITICAL MISSING LINE. ADD IT.
+import { Routes, Route, Link } from 'react-router-dom'; // 1. Import routing tools
+import './App.css';
+
+// 2. Import the components for your pages
+import HomePage from './components/HomePage';
+import SuggestionForm from './components/SuggestionForm';
+import MySuggestions from './components/MySuggestions';
+import AdminLoginPage from './components/AdminLoginPage';
 
 function App() {
-  // Inside your App() function in src/App.js
+  return (
+    <div className="App">
+      <header className="app-header">
+        <div className="header-left">
+          <img src="/jindal_steel_logo.png" className="logo" alt="Jindal Steel Logo" />
+          <nav>
+            {/* 3. Replace <a> tags with <Link> tags */}
+            <Link to="/">Home</Link>
+            <Link to="/submit">Submit Suggestion</Link>
+            <Link to="/my-suggestions">My Suggestions</Link>
+            <Link to="/admin">Admin</Link>
+          </nav>
+        </div>
+        <img src="/sohar_steel_logo.png" className="logo" alt="Sohar Steel Logo" />
+      </header>
 
-return (
-  <div className="App">
-    <header className="app-header">
-      
-      {/* Group the first logo and nav links together on the left */}
-      <div className="header-left">
-        <img src="/jindal_steel_logo.png" className="logo" alt="Jindal Steel Logo" />
-        <nav>
-          <a href="/">Home</a>
-          <a href="/submit">Submit Suggestion</a>
-          <a href="/my-suggestions">My Suggestions</a>
-          <a href="/admin">Admin</a>
-        </nav>
-      </div>
-      
-      {/* The second logo will be pushed to the far right by itself */}
-      <img src="/sohar_steel_logo.png" className="logo" alt="Sohar Steel Logo" />
-
-    </header>
-
-    <main>
-      {/* Page content will go here */}
-    </main>
-
-  </div>
-);
+      <main>
+        {/* 4. Define which component shows for each path */}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/submit" element={<SuggestionForm />} />
+          <Route path="/my-suggestions" element={<MySuggestions />} />
+          <Route path="/admin" element={<AdminLoginPage />} />
+        </Routes>
+      </main>
+    </div>
+  );
 }
 
 export default App;
