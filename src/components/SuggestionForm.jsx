@@ -41,6 +41,12 @@ function SuggestionForm() {
       alert("Please fill out the idea/suggestion field.");
       return;
     }
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (formData.contactEmail && !emailRegex.test(formData.contactEmail)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
     try {
       await addDoc(collection(db, 'suggestions'), {
         ...formData,

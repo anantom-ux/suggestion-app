@@ -1,143 +1,135 @@
-/* src/components/SuggestionForm.css */
-h1 {
-  color: red !important;
-  background-color: yellow !important;
-  text-align: center;
-  font-size: 40px;
-}
-
-/* ...all your other form styles below... */
+/* suggestion-form container with side margins */
 .suggestion-form {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 40px;
+  max-width: 960px; /* Wider form for a better feel */
+  margin: 50px auto; /* Centers the form with top/bottom margin */
+  padding: 50px;
   background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #dee2e6;
 }
 
+/* Main headings */
 .suggestion-form h2 {
   text-align: center;
-  margin-bottom: 10px;
-  font-size: 2em;
-  color: #222;
+  margin-bottom: 15px;
+  font-size: 2.2em;
+  font-weight: 600;
+  color: #212529;
 }
-
 .suggestion-form p {
   text-align: center;
   margin-top: 0;
-  color: #666;
+  color: #6c757d;
+  font-size: 1.1em;
+  margin-bottom: 50px;
+}
+
+/* Section styling */
+.form-section {
   margin-bottom: 40px;
 }
-
-.form-section {
-  margin-bottom: 35px;
-}
-
 .form-section h3 {
-  border-bottom: 2px solid #f0f0f0;
-  padding-bottom: 10px;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 12px;
   margin-bottom: 25px;
-  font-size: 1.25em;
-  color: #333;
+  font-size: 1.4em;
+  font-weight: 500;
+  color: #004085; /* Corporate blue color */
 }
 
+/* Input field layout */
 .form-row {
   display: flex;
-  gap: 25px;
+  gap: 30px;
 }
-
 .form-group {
   display: flex;
   flex-direction: column;
   margin-bottom: 25px;
   flex: 1;
 }
-
 .form-group label {
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #444;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #495057;
 }
-
 .form-group input, .form-group textarea {
-  padding: 12px 15px;
-  border: 1px solid #ccc;
+  padding: 15px;
+  border: 1px solid #ced4da;
   border-radius: 6px;
   font-size: 16px;
   width: 100%;
   box-sizing: border-box;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
-
 .form-group input:focus, .form-group textarea:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  border-color: #80bdff;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.25);
   outline: none;
 }
 
+/* Larger text boxes */
 .form-group textarea {
-  min-height: 140px;
+  min-height: 150px;
   resize: vertical;
 }
 
+/* Polished checkbox grid */
 .checkbox-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 15px 25px;
 }
-
 .checkbox-grid label {
   display: flex;
   align-items: center;
   font-weight: normal;
+  color: #495057;
   padding: 10px;
   border-radius: 5px;
-  transition: background-color 0.2s;
   cursor: pointer;
 }
-
 .checkbox-grid label:hover {
-    background-color: #f5f5f5;
+  background-color: #e9f5ff;
 }
-
 .checkbox-grid input {
   margin-right: 12px;
-  width: 18px;
-  height: 18px;
+  width: 1.15em;
+  height: 1.15em;
 }
 
+/* Anonymous submission box */
 .anonymous-label {
-    font-weight: normal;
-    display: flex;
-    align-items: center;
-    background-color: #fffbe6;
-    border: 1px solid #ffe58f;
-    padding: 15px;
-    border-radius: 6px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  padding: 15px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 .anonymous-label input {
-    margin-right: 12px;
-    width: 18px;
-    height: 18px;
+  margin-right: 12px;
+  width: 1.15em;
+  height: 1.15em;
 }
 
+/* Final submit button */
 .submit-button {
   width: 100%;
-  padding: 15px;
+  padding: 16px;
   border: none;
-  background: linear-gradient(90deg, #007bff, #0056b3);
+  background: #007bff;
   color: white;
   border-radius: 6px;
   cursor: pointer;
   font-size: 18px;
-  font-weight: bold;
-  transition: transform 0.2s, box-shadow 0.2s;
+  font-weight: 600;
+  transition: all 0.2s;
 }
-
 .submit-button:hover {
+  background: #0069d9;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
