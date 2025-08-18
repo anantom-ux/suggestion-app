@@ -1,43 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import { db } from '../firebase'; // Make sure you have your firebase.js config file
-import { collection, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
-import './HomePage.css'; // We'll create this file for styling
+import { db } from '../firebase';
+// The key change is importing "onSnapshot"
+import { collection, query, where, orderBy, limit, onSnapshot } from 'firebase/firestore';
+import './HomePage.css';
 
 function HomePage() {
   const [suggestions, setSuggestions] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchSuggestions = async () => {
-      try {
-        // 1. Reference to the 'suggestions' collection
-        const suggestionsRef = collection(db, 'suggestions');
+    const suggestionsRef = collection(db, 'suggestions');
+    const q = query(
+      suggestionsRef,
+      where('isAnonymous', '==', false), // Only get suggestions that are NOT anonymous
+      orderBy('createdAt', 'desc'),
+      limit(10)
+    );
 
-        // 2. Create a query to get the latest 10 public suggestions
-        const q = query(
-          suggestionsRef,
-          where('isAnonymous', '==', false), // Only get suggestions that are NOT anonymous
-          orderBy('createdAt', 'desc'),      // Order by newest first
-          limit(10)                          // Get a maximum of 10
-        );
+    // onSnapshot creates a real-time listener
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const suggestionsData = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setSuggestions(suggestionsData);
+      setLoading(false);
+    }, (error) => {
+      console.error("Error fetching real-time suggestions: ", error);
+      setLoading(false);
+    });
 
-        // 3. Execute the query
-        const querySnapshot = await getDocs(q);
-        const suggestionsData = querySnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-
-        setSuggestions(suggestionsData);
-      } catch (error) {
-        console.error("Error fetching suggestions: ", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchSuggestions();
-  }, []); // The empty array [] means this effect runs only once when the component mounts
+    // Cleanup the listener when the component unmounts
+    return () => unsubscribe();
+  }, []);
 
   if (loading) {
     return <div>Loading recent suggestions...</div>;
@@ -53,10 +48,10 @@ function HomePage() {
           suggestions.map(suggestion => (
             <div key={suggestion.id} className="suggestion-card">
               <h3>Idea: {suggestion.idea}</h3>
-              <p><strong>Suggested by:</strong> {suggestion.suggestedBy}</p>
+              <p><strong>Suggested by:</strong> {suggestion.suggestedBy || 'Anonymous'}</p>
               <p><strong>Department:</strong> {suggestion.department}</p>
               <p className="card-date">
-                {new Date(suggestion.createdAt?.toDate()).toLocaleDateString()}
+                {suggestion.createdAt && new Date(suggestion.createdAt.toDate()).toLocaleDateString()}
               </p>
             </div>
           ))
