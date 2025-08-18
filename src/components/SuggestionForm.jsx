@@ -4,6 +4,7 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import './SuggestionForm.css';
 
 function SuggestionForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     suggestedBy: '',
     empCode: '',
@@ -15,7 +16,6 @@ function SuggestionForm() {
     benefits: '',
     involvement: '',
     isAnonymous: false,
-    contactEmail: '',
   });
 
   const handleChange = (e) => {
@@ -41,12 +41,8 @@ function SuggestionForm() {
       alert("Please fill out the idea/suggestion field.");
       return;
     }
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (formData.contactEmail && !emailRegex.test(formData.contactEmail)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
+    
+    setIsSubmitting(true);
     try {
       await addDoc(collection(db, 'suggestions'), {
         ...formData,
@@ -56,16 +52,60 @@ function SuggestionForm() {
     } catch (error) {
       console.error("Error submitting suggestion: ", error);
       alert('Error submitting suggestion.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
     <form className="suggestion-form" onSubmit={handleSubmit}>
-      {/* The <h1> was for testing, you can remove it if you like */}
-      {/* <h1>TESTING</h1> */} 
       <h2>Submit Your Idea</h2>
       <p>Your insights drive our progress. Share your thoughts to make a difference!</p>
 
+      <div className="form-section">
+        <h3>1. Your Details</h3>
+        <div className="form-row">
+          <div className="form-group">
+            <label>Full Name</label>
+            <input type="text" name="suggestedBy" value={formData.suggestedBy} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>Employee ID</label>
+            <input type="text" name="empCode" value={formData.empCode} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>Department/Area Name</label>
+            <input type="text" name="department" value={formData.department} onChange={handleChange} />
+          </div>
+        </div>
+      </div>
+
+      <div className="form-section">
+        <h3>2. Your Idea</h3>
+        <div className="form-group">
+          <label>Existing Problem (What needs improvement?)</label>
+          <textarea name="currentStatus" value={formData.currentStatus} onChange={handleChange}></textarea>
+        </div>
+        <div className="form-group">
+          <label>Suggestion for Solving it (How can it be better?)</label>
+          <textarea name="idea" value={formData.idea} onChange={handleChange} required></textarea>
+        </div>
+      </div>
+
+      <div className="form-section">
+        <h3>3. Suggestion Topics</h3>
+        <div className="checkbox-grid">
+          <label><input type="checkbox" name="topics" value="Work Environment" onChange={handleChange} /> Improving the work environment.</label>
+          <label><input type="checkbox" name="topics" value="Productivity" onChange={handleChange} /> Higher productivity, cost reduction or improvement.</label>
+          <label><input type="checkbox" name="topics" value="Process Improvement" onChange={handleChange} /> Improvement in methods, machinery, or procedures.</label>
+          <label><input type="checkbox" name="topics" value="Waste Reduction" onChange={handleChange} /> Reduction of waste or spillage.</label>
+          <label><input type="checkbox" name="topics" value="Idle Time Reduction" onChange={handleChange} /> Reduction of idle time or repairs.</label>
+          <label><input type="checkbox" name="topics" value="Quality/Output" onChange={handleChange} /> Increase in the utility, quality, yield or output.</label>
+          <label><input type="checkbox" name="topics" value="Conservation" onChange={handleChange} /> Conservation of materials, energy or time.</label>
+          <label><input type="checkbox" name="topics" value="Safety" onChange={handleChange} /> Handling of hazardous materials, safety against fire etc.</label>
+          <label><input type="checkbox" name="topics" value="Other" onChange={handleChange} /> Any other Topic.</label>
+        </div>
+      </div>
 
       <div className="form-section">
           <h3>4. Benefits & Your Involvement</h3>
@@ -85,12 +125,10 @@ function SuggestionForm() {
             Submit this suggestion anonymously (it will not be shown on the home page)
           </label>
       </div>
-      <div className="form-group">
-        <label>Contact Email</label>
-        <input type="text" name="contactEmail" value={formData.contactEmail} onChange={handleChange} />
-      </div>
 
-      <button type="submit" className="submit-button">Submit My Suggestion</button>
+      <button type="submit" className="submit-button" disabled={isSubmitting}>
+        {isSubmitting ? 'Submitting...' : 'Submit My Suggestion'}
+      </button>
     </form>
   );
 }
