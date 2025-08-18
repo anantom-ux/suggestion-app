@@ -99,11 +99,10 @@
   height: 1.15em;
 }
 
-/* --- FIX FOR RADIO BUTTONS --- */
 .radio-group {
   display: flex;
   align-items: center;
-  gap: 25px; /* Controls space between "Yes" and "No" */
+  gap: 25px;
   padding-top: 5px;
 }
 .radio-group label {
@@ -114,13 +113,12 @@
   font-size: 16px;
 }
 .radio-group input[type="radio"] {
-  margin-right: 8px; /* Space between button and text */
-  width: 1.2em;  /* Makes the button bigger */
-  height: 1.2em; /* Makes the button bigger */
+  margin-right: 8px;
+  width: 1.2em;
+  height: 1.2em;
   accent-color: #007bff;
 }
 
-/* Anonymous submission box */
 .anonymous-label {
   display: flex;
   align-items: center;
@@ -136,7 +134,6 @@
   height: 1.15em;
 }
 
-/* Final submit button */
 .submit-button {
   width: 100%;
   padding: 16px;
@@ -160,4 +157,30 @@
 }
 .thank-you-message h2 {
   color: #28a745;
+}
+
+/* --- MOBILE RESPONSIVE STYLES --- */
+@media (max-width: 768px) {
+  .suggestion-form {
+    margin: 20px auto;
+    padding: 25px;
+  }
+
+  .suggestion-form h2 {
+    font-size: 1.8em;
+  }
+
+  .suggestion-form p {
+    font-size: 1em;
+    margin-bottom: 30px;
+  }
+
+  .form-row {
+    flex-direction: column; /* Stack fields vertically */
+    gap: 0;
+  }
+
+  .checkbox-grid {
+    grid-template-columns: 1fr; /* Single column for checkboxes */
+  }
 }
