@@ -1,7 +1,6 @@
-/* suggestion-form container with side margins */
 .suggestion-form {
-  max-width: 960px; /* Wider form for a better feel */
-  margin: 50px auto; /* Centers the form with top/bottom margin */
+  max-width: 960px;
+  margin: 50px auto;
   padding: 50px;
   background-color: #ffffff;
   border-radius: 10px;
@@ -9,7 +8,6 @@
   border: 1px solid #dee2e6;
 }
 
-/* Main headings */
 .suggestion-form h2 {
   text-align: center;
   margin-bottom: 15px;
@@ -25,7 +23,6 @@
   margin-bottom: 50px;
 }
 
-/* Section styling */
 .form-section {
   margin-bottom: 40px;
 }
@@ -35,10 +32,9 @@
   margin-bottom: 25px;
   font-size: 1.4em;
   font-weight: 500;
-  color: #004085; /* Corporate blue color */
+  color: #004085;
 }
 
-/* Input field layout */
 .form-row {
   display: flex;
   gap: 30px;
@@ -69,13 +65,21 @@
   outline: none;
 }
 
-/* Larger text boxes */
 .form-group textarea {
   min-height: 150px;
   resize: vertical;
 }
 
-/* Polished checkbox grid */
+/* --- NEW: Styles to "mark" the problem and suggestion boxes --- */
+.problem-area {
+  background-color: #fffbe6;
+  border-color: #ffe58f;
+}
+.suggestion-area {
+  background-color: #e9f5ff;
+  border-color: #b3d7ff;
+}
+
 .checkbox-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -91,7 +95,7 @@
   cursor: pointer;
 }
 .checkbox-grid label:hover {
-  background-color: #e9f5ff;
+  background-color: #f0f0f0;
 }
 .checkbox-grid input {
   margin-right: 12px;
@@ -99,6 +103,7 @@
   height: 1.15em;
 }
 
+/* --- FIX: Styles for the radio buttons --- */
 .radio-group {
   display: flex;
   align-items: center;
@@ -157,30 +162,4 @@
 }
 .thank-you-message h2 {
   color: #28a745;
-}
-
-/* --- MOBILE RESPONSIVE STYLES --- */
-@media (max-width: 768px) {
-  .suggestion-form {
-    margin: 20px auto;
-    padding: 25px;
-  }
-
-  .suggestion-form h2 {
-    font-size: 1.8em;
-  }
-
-  .suggestion-form p {
-    font-size: 1em;
-    margin-bottom: 30px;
-  }
-
-  .form-row {
-    flex-direction: column; /* Stack fields vertically */
-    gap: 0;
-  }
-
-  .checkbox-grid {
-    grid-template-columns: 1fr; /* Single column for checkboxes */
-  }
 }

@@ -109,11 +109,11 @@ function SuggestionForm() {
         <h3>2. Your Idea</h3>
         <div className="form-group">
           <label>Existing Problem (What needs improvement?)</label>
-          <textarea name="currentStatus" value={formData.currentStatus} onChange={handleChange}></textarea>
+          <textarea name="currentStatus" className="problem-area" value={formData.currentStatus} onChange={handleChange}></textarea>
         </div>
         <div className="form-group">
           <label>Suggestion for Solving it (How can it be better?)</label>
-          <textarea name="idea" value={formData.idea} onChange={handleChange} required></textarea>
+          <textarea name="idea" className="suggestion-area" onChange={handleChange} required></textarea>
         </div>
       </div>
 
