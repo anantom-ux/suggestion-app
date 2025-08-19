@@ -19,3 +19,4 @@ const app = initializeApp(firebaseConfig);
 // Export the firestore database and storage instances
 export const db = getFirestore(app);
 export const storage = getStorage(app);
+// Forcing a change to sync with GitHub
