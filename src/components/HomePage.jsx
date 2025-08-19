@@ -40,7 +40,7 @@ function HomePage() {
 
   return (
     <div className="homepage-container">
-      <h2>Recent Suggestions</h2>
+      <h2>Recent testing Suggestions</h2>
       <div className="suggestions-list">
         {suggestions.length === 0 ? (
           <p>No public suggestions have been submitted yet.</p>
