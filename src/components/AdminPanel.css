@@ -1,0 +1,60 @@
+.admin-panel-container {
+  padding: 20px 40px;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 10px;
+}
+
+.logout-button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #dc3545;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.suggestions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.suggestion-admin-card {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.suggestion-admin-card h4 {
+  margin-top: 0;
+  color: #004085;
+}
+
+.suggestion-admin-card p {
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.suggestion-admin-card hr {
+  border: 0;
+  border-top: 1px solid #f0f0f0;
+  margin: 15px 0;
+}
+
+.card-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  color: #6c757d;
+}
