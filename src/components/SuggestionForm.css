@@ -1,6 +1,7 @@
+/* suggestion-form container with side margins */
 .suggestion-form {
-  max-width: 960px;
-  margin: 50px auto;
+  max-width: 960px; /* Wider form for a better feel */
+  margin: 50px auto; /* Centers the form with top/bottom margin */
   padding: 50px;
   background-color: #ffffff;
   border-radius: 10px;
@@ -8,6 +9,7 @@
   border: 1px solid #dee2e6;
 }
 
+/* Main headings */
 .suggestion-form h2 {
   text-align: center;
   margin-bottom: 15px;
@@ -23,6 +25,7 @@
   margin-bottom: 50px;
 }
 
+/* Section styling */
 .form-section {
   margin-bottom: 40px;
 }
@@ -32,9 +35,10 @@
   margin-bottom: 25px;
   font-size: 1.4em;
   font-weight: 500;
-  color: #004085;
+  color: #004085; /* Corporate blue color */
 }
 
+/* Input field layout */
 .form-row {
   display: flex;
   gap: 30px;
@@ -65,21 +69,23 @@
   outline: none;
 }
 
+/* Larger text boxes */
 .form-group textarea {
   min-height: 150px;
   resize: vertical;
 }
 
-/* --- NEW: Styles to "mark" the problem and suggestion boxes --- */
+/* Styles to "mark" the problem and suggestion boxes */
 .problem-area {
-  background-color: #fffbe6;
+  background-color: #fffbe6; /* Light yellow */
   border-color: #ffe58f;
 }
 .suggestion-area {
-  background-color: #e9f5ff;
+  background-color: #e9f5ff; /* Light blue */
   border-color: #b3d7ff;
 }
 
+/* Polished checkbox grid */
 .checkbox-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -103,7 +109,7 @@
   height: 1.15em;
 }
 
-/* --- FIX: Styles for the radio buttons --- */
+/* Styles for the radio buttons */
 .radio-group {
   display: flex;
   align-items: center;
@@ -124,6 +130,7 @@
   accent-color: #007bff;
 }
 
+/* Anonymous submission box */
 .anonymous-label {
   display: flex;
   align-items: center;
@@ -139,6 +146,7 @@
   height: 1.15em;
 }
 
+/* Final submit button */
 .submit-button {
   width: 100%;
   padding: 16px;
@@ -162,4 +170,30 @@
 }
 .thank-you-message h2 {
   color: #28a745;
+}
+
+/* --- MOBILE RESPONSIVE STYLES --- */
+@media (max-width: 768px) {
+  .suggestion-form {
+    margin: 20px auto;
+    padding: 25px;
+  }
+
+  .suggestion-form h2 {
+    font-size: 1.8em;
+  }
+
+  .suggestion-form p {
+    font-size: 1em;
+    margin-bottom: 30px;
+  }
+
+  .form-row {
+    flex-direction: column; /* Stack fields vertically */
+    gap: 0;
+  }
+
+  .checkbox-grid {
+    grid-template-columns: 1fr; /* Single column for checkboxes */
+  }
 }
