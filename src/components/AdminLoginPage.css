@@ -1,13 +1,16 @@
+/* This centers the form on the page */
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 50px;
+  width: 100%;
 }
 
+/* This creates the white box with shadow */
 .login-form {
   width: 100%;
-  max-width: 400px;
+  max-width: 400px; /* Controls the width of the form */
   padding: 40px;
   background-color: #ffffff;
   border-radius: 10px;
@@ -21,6 +24,45 @@
   color: #212529;
 }
 
+/* This is the container for each label and input field */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #495057;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* This is the container for the password input and the show/hide button */
+.password-group {
+  position: relative;
+}
+
+/* This positions the show/hide button inside the input field */
+.toggle-password {
+  position: absolute;
+  top: 50%; /* Aligns the button vertically */
+  transform: translateY(-50%);
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6c757d;
+  font-size: 14px;
+}
+
 .error-message {
   color: #dc3545;
   background-color: #f8d7da;
@@ -29,4 +71,31 @@
   border-radius: 6px;
   text-align: center;
   margin-bottom: 20px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+.password-group {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 68%;
+  transform: translateY(-50%);
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6c757d;
+  font-size: 14px;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import './AdminLoginPage.css';
@@ -9,7 +9,9 @@ function AdminLoginPage() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate(); // Initialize the navigate function
+  // 1. Add new state for password visibility
+  const [showPassword, setShowPassword] = useState(false); 
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -18,7 +20,6 @@ function AdminLoginPage() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      // On success, navigate to the admin dashboard
       navigate('/admin/dashboard'); 
     } catch (error) {
       console.error("Error logging in:", error);
@@ -42,15 +43,24 @@ function AdminLoginPage() {
             required
           />
         </div>
-        <div className="form-group">
+        {/* 2. Wrap password input and button in a container */}
+        <div className="form-group password-group">
           <label htmlFor="password">Password</label>
           <input
-            type="password"
+            // 3. Change input type based on state
+            type={showPassword ? "text" : "password"} 
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <button 
+            type="button" 
+            className="toggle-password" 
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? 'Hide' : 'Show'}
+          </button>
         </div>
         {error && <p className="error-message">{error}</p>}
         <button type="submit" className="submit-button" disabled={isLoading}>

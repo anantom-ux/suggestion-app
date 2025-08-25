@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { db, storage } from '../firebase';
+import { db, storage } from '../firebase'; // Make sure you have storage imported for file uploads
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import './SuggestionForm.css';
@@ -7,7 +7,7 @@ import './SuggestionForm.css';
 function SuggestionForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
-  const [uploadFile, setUploadFile] = useState(null);
+  const [uploadFile, setUploadFile] = useState(null); // State for the file
   const [formData, setFormData] = useState({
     suggestedBy: '',
     empCode: '',
@@ -44,8 +44,8 @@ function SuggestionForm() {
       return;
     }
     if (uploadFile && uploadFile.size > 25 * 1024 * 1024) {
-      alert("File is too large! Maximum size is 25MB.");
-      return;
+        alert("File is too large! Maximum size is 25MB.");
+        return;
     }
 
     setIsSubmitting(true);
@@ -74,11 +74,11 @@ function SuggestionForm() {
 
   if (submissionSuccess) {
     return (
-      <div className="suggestion-form thank-you-message">
-        <h2>Thank You!</h2>
-        <p>Your suggestion has been recorded successfully.</p>
-        <button className="submit-button" onClick={() => window.location.reload()}>Submit Another Suggestion</button>
-      </div>
+        <div className="suggestion-form thank-you-message">
+            <h2>Thank You!</h2>
+            <p>Your suggestion has been recorded successfully.</p>
+            <button type="button" className="submit-button" onClick={() => window.location.reload()}>Submit Another Suggestion</button>
+        </div>
     );
   }
 
@@ -109,10 +109,12 @@ function SuggestionForm() {
         <h3>2. Your Idea</h3>
         <div className="form-group">
           <label>Existing Problem (What needs improvement?)</label>
+          {/* ADDED CLASSNAME HERE */}
           <textarea name="currentStatus" className="problem-area" value={formData.currentStatus} onChange={handleChange}></textarea>
         </div>
         <div className="form-group">
           <label>Suggestion for Solving it (How can it be better?)</label>
+          {/* ADDED CLASSNAME HERE */}
           <textarea name="idea" className="suggestion-area" onChange={handleChange} required></textarea>
         </div>
       </div>
@@ -139,17 +141,29 @@ function SuggestionForm() {
               <textarea name="benefits" value={formData.benefits} onChange={handleChange}></textarea>
           </div>
           <div className="form-group">
-              <label>Would you like to be involved in the implementation of the suggestion?</label>
-              <div className="radio-group">
-                  <label>
-                      <input type="radio" name="involvement" value="Yes" checked={formData.involvement === 'Yes'} onChange={handleChange} />
-                      Yes, I'd like to help!
-                  </label>
-                  <label>
-                      <input type="radio" name="involvement" value="No" checked={formData.involvement === 'No'} onChange={handleChange} />
-                      No, thank you.
-                  </label>
-              </div>
+            <label>Would you like to be involved in the implementation of the suggestion?</label>
+            <div className="radio-group">
+                <label>
+                    <input 
+                        type="radio" 
+                        name="involvement" 
+                        value="Yes" 
+                        checked={formData.involvement === 'Yes'} 
+                        onChange={handleChange} 
+                    />
+                    Yes, I'd like to help!
+                </label>
+                <label>
+                    <input 
+                        type="radio" 
+                        name="involvement" 
+                        value="No" 
+                        checked={formData.involvement === 'No'} 
+                        onChange={handleChange} 
+                    />
+                    No, thank you.
+                </label>
+            </div>
           </div>
       </div>
 
