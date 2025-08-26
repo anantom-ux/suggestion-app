@@ -131,13 +131,14 @@
 
 .anonymous-label {
   display: flex;
-  align-items: center; /* This is the key property to vertically align the items */
+  justify-content: flex-start; /* This is the key change to align items to the left */
+  align-items: center;
   background-color: #f8f9fa;
   border: 1px solid #dee2e6;
   padding: 15px;
   border-radius: 6px;
   cursor: pointer;
-  font-weight: normal; /* Ensures the text isn't bold */
+  font-weight: normal;
 }
 
 .anonymous-label input {
